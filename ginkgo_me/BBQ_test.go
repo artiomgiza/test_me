@@ -59,41 +59,46 @@ var _ = Describe("calc", func() {
 			totalPrice, err = subject.CalculatePrice(peopleCount)
 		})
 
-		Context("when peopleCounter is exceeded max value", func() {
+		Context("when people counter is exceeded max value", func() {
 			BeforeEach(func() {
 				peopleCount = 11
 			})
 
-			It("should return error", func() {
+			It("should return error about people exceeded max value", func() {
 				Expect(err).To(HaveOccurred())
 				Expect(err.Error()).To(ContainSubstring("too much people"))
 			})
 		})
 
-		Context("when peopleCounter is not exceeded max value", func() {
+		Context("when people counter is not exceeded max value", func() {
 			BeforeEach(func() {
 				peopleCount = 8
 			})
 
-			Context("when GetEntrecote returns error", func() {
+			Context("when get entrecote returns error", func() {
 				BeforeEach(func() {
 					mockBeefFarm.EXPECT().GetEntrecote(peopleCount).Return(0, errors.New("test_err_7483"))
 				})
 
-				Context("when GetChicken returns error", func() {
+				Context("when get chicken returns error", func() {
 					BeforeEach(func() {
 						mockChickenFarm.EXPECT().GetPullet(peopleCount).Return(0, errors.New("test_err_2393"))
 					})
 
-					It("should return error", func() {
+					It("should return error about no meet available", func() {
 						Expect(err).To(HaveOccurred())
 						Expect(err.Error()).To(ContainSubstring("no meet available"))
 						Expect(err.Error()).To(ContainSubstring("test_err_2393"))
 					})
 				})
+
+				Context("when get chicken returns no error", func() {
+					// this case is not tested
+					// flow is the same as next "when get entrecote returns no error"
+				})
 			})
 
-			Context("when GetEntrecote returns no error", func() {
+			Context("when get entrecote returns no error", func() {
 				var meetPrice int
 
 				BeforeEach(func() {
@@ -101,19 +106,19 @@ var _ = Describe("calc", func() {
 					mockBeefFarm.EXPECT().GetEntrecote(peopleCount).Return(meetPrice, nil)
 				})
 
-				Context("when GetMangal returns error", func() {
+				Context("when get mangal returns error", func() {
 					BeforeEach(func() {
 						mockMangalStore.EXPECT().GetMangal().Return(0, errors.New("test_err_9494"))
 					})
 
-					It("should return error", func() {
+					It("should return error about no mangal available", func() {
 						Expect(err).To(HaveOccurred())
 						Expect(err.Error()).To(ContainSubstring("no mangal available"))
 						Expect(err.Error()).To(ContainSubstring("test_err_9494"))
 					})
 				})
 
-				Context("when GetMangal returns no error", func() {
+				Context("when get mangal returns no error", func() {
 					var mangalPrice int
 
 					BeforeEach(func() {
@@ -121,19 +126,19 @@ var _ = Describe("calc", func() {
 						mockMangalStore.EXPECT().GetMangal().Return(mangalPrice, nil)
 					})
 
-					Context("when GetCoal returns error", func() {
+					Context("when get coal returns error", func() {
 						BeforeEach(func() {
 							mockCoatFarm.EXPECT().GetCoal(1).Return(0, errors.New("test_err_9883"))
 						})
 
-						It("should return error", func() {
+						It("should return error about no coal available", func() {
 							Expect(err).To(HaveOccurred())
 							Expect(err.Error()).To(ContainSubstring("no coal available"))
 							Expect(err.Error()).To(ContainSubstring("test_err_9883"))
 						})
 					})
 
-					Context("when GetCoal returns no error", func() {
+					Context("when get coal returns no error", func() {
 						var coatPrice int
 
 						BeforeEach(func() {
@@ -141,9 +146,10 @@ var _ = Describe("calc", func() {
 							mockCoatFarm.EXPECT().GetCoal(1).Return(coatPrice, nil)
 						})
 
-						It("should return no error", func() {
+						It("should return no error and valid total price", func() {
 							Expect(err).To(Succeed())
-							Expect(totalPrice).To(Equal(1110))
+							expectedTotalPrice := meetPrice + mangalPrice + coatPrice
+							Expect(totalPrice).To(Equal(expectedTotalPrice))
 						})
 					})
 				})
