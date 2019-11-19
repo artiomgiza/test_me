@@ -18,7 +18,7 @@ Then compare and discuss.
 
 Currently we have:
 ----
-1. ginkgo example (./ginkgo_me/BBQ_test.go)
+1. ginkgo example (./ginkgo_me/BBQ_test.go) - run cmd: `ginkgo ./ginkgo_me -r`
 2. ...
 
 How:
