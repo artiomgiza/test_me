@@ -23,5 +23,7 @@ Currently we have:
 
 How:
 ----
-Please add directory in the project root, copy the `ginkgo_me/BBQ.go` file there and add tests.
+Please add directory for your approach (native, testify, ...) in the project root (near `ginkgo_me` dir) and copy the `ginkgo_me/BBQ.go` file there.
+Now add tests (by creating PR).
 
+Once there will be some examples to compare we might set up discussion meeting...
