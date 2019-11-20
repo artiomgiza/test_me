@@ -23,7 +23,7 @@ Then compare and discuss.
 Currently we have:
 ----
 1. ginkgo 
-- [example with structure explanation](./ginkgo_me/BBQ_test.go)
+- [example with structure explanation](./ginkgo_me)
 - run cmd: `ginkgo ./ginkgo_me -r`
 2. ...
 
