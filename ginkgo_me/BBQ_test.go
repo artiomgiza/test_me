@@ -46,6 +46,10 @@ var _ = Describe("calc", func() {
 		}
 	})
 
+	AfterEach(func() {
+		mockCtrl.Finish()
+	})
+
 	Describe(".Prepare", func() {
 		var (
 			// inputs
