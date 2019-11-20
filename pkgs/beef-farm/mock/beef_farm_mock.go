@@ -5,8 +5,9 @@
 package mock_beeffarm
 
 import (
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
+
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockProvider is a mock of Provider interface
@@ -34,7 +35,6 @@ func (m *MockProvider) EXPECT() *MockProviderMockRecorder {
 
 // GetEntrecote mocks base method
 func (m *MockProvider) GetEntrecote(weight int) (int, error) {
-	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetEntrecote", weight)
 	ret0, _ := ret[0].(int)
 	ret1, _ := ret[1].(error)
@@ -43,13 +43,11 @@ func (m *MockProvider) GetEntrecote(weight int) (int, error) {
 
 // GetEntrecote indicates an expected call of GetEntrecote
 func (mr *MockProviderMockRecorder) GetEntrecote(weight interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetEntrecote", reflect.TypeOf((*MockProvider)(nil).GetEntrecote), weight)
 }
 
 // GetTBone mocks base method
 func (m *MockProvider) GetTBone(weight int) (int, error) {
-	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetTBone", weight)
 	ret0, _ := ret[0].(int)
 	ret1, _ := ret[1].(error)
@@ -58,6 +56,5 @@ func (m *MockProvider) GetTBone(weight int) (int, error) {
 
 // GetTBone indicates an expected call of GetTBone
 func (mr *MockProviderMockRecorder) GetTBone(weight interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetTBone", reflect.TypeOf((*MockProvider)(nil).GetTBone), weight)
 }
