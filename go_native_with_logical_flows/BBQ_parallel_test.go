@@ -35,7 +35,7 @@ func (s *bbqTestSuite) finish() {
 	s.mockCtrl.Finish()
 }
 
-func TestCoolPriceCalculator_Async_CalculatePrice_SuccessFlow(t *testing.T) {
+func TestCoolPriceCalculator_Parallel_CalculatePrice_SuccessFlow(t *testing.T) {
 	t.Parallel()
 	const (
 		peopleCounter = 10
@@ -71,7 +71,7 @@ func TestCoolPriceCalculator_Async_CalculatePrice_SuccessFlow(t *testing.T) {
 	})
 }
 
-func TestCoolPriceCalculator_Async_CalculatePrice_ErrorsFlow(t *testing.T) {
+func TestCoolPriceCalculator_Parallel_CalculatePrice_ErrorsFlow(t *testing.T) {
 	t.Parallel()
 	const randomPrice = 984576 // means that we do not care about this value
 	var (
