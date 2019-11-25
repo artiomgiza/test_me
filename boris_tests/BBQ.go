@@ -1,4 +1,4 @@
-package ginkgo_me
+package boris_tests
 
 import (
 	beeffarm "github.com/artiomgiza/test_me/pkgs/beef-farm"
@@ -35,6 +35,9 @@ const (
 func (b coolPriceCalculator) CalculatePrice(peopleCounter int) (int, error) {
 	if peopleCounter > maxPeopleCounter {
 		return 0, errors.New("too much people")
+	}
+	if peopleCounter <= 0 {
+		return 0, errors.New("too few people")
 	}
 
 	meetPrice, err := b.beefFarm.GetEntrecote(peopleCounter)
