@@ -1,11 +1,10 @@
 package ginkgo_me
 
 import (
-	beeffarm "test_me/pkgs/beef-farm"
-	chickenfarm "test_me/pkgs/chicken-farm"
-	coalfarm "test_me/pkgs/coal-farm"
-	mangalstore "test_me/pkgs/mangal-store"
-
+	beeffarm "github.com/artiomgiza/test_me/pkgs/beef-farm"
+	chickenfarm "github.com/artiomgiza/test_me/pkgs/chicken-farm"
+	coalfarm "github.com/artiomgiza/test_me/pkgs/coal-farm"
+	mangalstore "github.com/artiomgiza/test_me/pkgs/mangal-store"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -15,7 +14,11 @@ type Provider interface {
 }
 
 var Instance Provider = coolPriceCalculator{
-	// ... inject real fields ...
+	// DI
+	beefFarm:    beeffarm.Instance,
+	chickenFarm: chickenfarm.Instance,
+	mangalStore: mangalstore.Instance,
+	coalFarm:    coalfarm.Instance,
 }
 
 //////////////////////////////////////////////////////////
