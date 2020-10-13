@@ -2,6 +2,7 @@ package ginkgo_me
 
 import (
 	"errors"
+
 	mock_beeffarm "github.com/artiomgiza/test_me/pkgs/beef-farm/mock"
 	mock_chickenfarm "github.com/artiomgiza/test_me/pkgs/chicken-farm/mock"
 	mock_coalfarm "github.com/artiomgiza/test_me/pkgs/coal-farm/mock"

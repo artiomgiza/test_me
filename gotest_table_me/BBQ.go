@@ -1,4 +1,4 @@
-package ginkgo_me
+package gotesttableme
 
 import (
 	beeffarm "github.com/artiomgiza/test_me/pkgs/beef-farm"
@@ -15,11 +15,7 @@ type Provider interface {
 }
 
 var Instance Provider = coolPriceCalculator{
-	// DI
-	beefFarm:    beeffarm.Instance,
-	chickenFarm: chickenfarm.Instance,
-	mangalStore: mangalstore.Instance,
-	coalFarm:    coalfarm.Instance,
+	// ... inject real fields ...
 }
 
 //////////////////////////////////////////////////////////
