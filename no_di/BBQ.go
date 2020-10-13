@@ -4,9 +4,8 @@ import (
 	sunnyfarm "farm"
 	somepkg "google"
 
-	"github.com/Sirupsen/logrus"
-
 	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
 )
 
 type CoolPriceCalculator struct{}
