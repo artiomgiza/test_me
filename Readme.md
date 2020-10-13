@@ -1,6 +1,6 @@
 
-Short introduction
-------------------
+Intro
+-----
 
 This package helps us to calculate BBQ price for N people.
 
@@ -14,20 +14,12 @@ _Total price_ = _meet price_ + _mangal price_ + _coal price_
 Purpose
 -------
 
-Our purpose is to compare different kind of test approaches for the same code base.
+Our purpose is to see BDT testing approach based on Ginkgo infra.
 
-We'll try to prepare best possible tests for the same `coolPriceCalculator` (see .../BBQ.go) with each approach.
+We'll try to prepare best possible test for the `coolPriceCalculator` (see .../BBQ.go).
 
-Then compare and discuss.
+---
+Notes:
 
-Currently we have:
-----
-1. ginkgo example (./ginkgo_me/BBQ_test.go) - run cmd: `ginkgo ./ginkgo_me -r`
-2. ...
-
-How to add more:
-----------------
-Please add directory for your approach (native, testify, ...) in the project root (near `ginkgo_me` dir) and copy the `ginkgo_me/BBQ.go` file there.
-Now add tests (by creating PR).
-
-Once there will be some examples to compare we might set up discussion meeting...
+- [example with structure explanation](./ginkgo_me)
+- run test cmd: `ginkgo ./ginkgo_me -r`
