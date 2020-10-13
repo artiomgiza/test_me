@@ -2,10 +2,11 @@ package ginkgo_me
 
 import (
 	"errors"
-	mock_beeffarm "test_me/pkgs/beef-farm/mock"
-	mock_chickenfarm "test_me/pkgs/chicken-farm/mock"
-	mock_coalfarm "test_me/pkgs/coal-farm/mock"
-	mock_mangalstore "test_me/pkgs/mangal-store/mock"
+
+	mock_beeffarm "github.com/artiomgiza/test_me/pkgs/beef-farm/mock"
+	mock_chickenfarm "github.com/artiomgiza/test_me/pkgs/chicken-farm/mock"
+	mock_coalfarm "github.com/artiomgiza/test_me/pkgs/coal-farm/mock"
+	mock_mangalstore "github.com/artiomgiza/test_me/pkgs/mangal-store/mock"
 
 	"github.com/golang/mock/gomock"
 	. "github.com/onsi/ginkgo"

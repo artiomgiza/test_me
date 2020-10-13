@@ -5,8 +5,9 @@
 package mock_mangalstore
 
 import (
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
+
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockProvider is a mock of Provider interface
@@ -34,7 +35,6 @@ func (m *MockProvider) EXPECT() *MockProviderMockRecorder {
 
 // GetMangal mocks base method
 func (m *MockProvider) GetMangal() (int, error) {
-	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetMangal")
 	ret0, _ := ret[0].(int)
 	ret1, _ := ret[1].(error)
@@ -43,6 +43,5 @@ func (m *MockProvider) GetMangal() (int, error) {
 
 // GetMangal indicates an expected call of GetMangal
 func (mr *MockProviderMockRecorder) GetMangal() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMangal", reflect.TypeOf((*MockProvider)(nil).GetMangal))
 }

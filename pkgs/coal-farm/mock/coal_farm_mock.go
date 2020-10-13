@@ -5,8 +5,9 @@
 package mock_coalfarm
 
 import (
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
+
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockProvider is a mock of Provider interface
@@ -34,7 +35,6 @@ func (m *MockProvider) EXPECT() *MockProviderMockRecorder {
 
 // GetCoal mocks base method
 func (m *MockProvider) GetCoal(mangalsCounter int) (int, error) {
-	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetCoal", mangalsCounter)
 	ret0, _ := ret[0].(int)
 	ret1, _ := ret[1].(error)
@@ -43,6 +43,5 @@ func (m *MockProvider) GetCoal(mangalsCounter int) (int, error) {
 
 // GetCoal indicates an expected call of GetCoal
 func (mr *MockProviderMockRecorder) GetCoal(mangalsCounter interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetCoal", reflect.TypeOf((*MockProvider)(nil).GetCoal), mangalsCounter)
 }
