@@ -1,3 +1,8 @@
+run test cmd:
+`ginkgo -r`
+(from parent dir: `ginkgo ./ginkgo_me -r` )
+
+
 The structure of the test is as following.
 Please read comments in the following pseudo go code:
 
